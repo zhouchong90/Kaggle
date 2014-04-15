@@ -26,6 +26,12 @@ public class OfferFeatureExtraction{
 	private void extractCustomerFeature() {
 		// TODO Auto-generated method stub
 		
+		writeCustomerFeatureToFile();
+	}
+
+	private void writeCustomerFeatureToFile() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
