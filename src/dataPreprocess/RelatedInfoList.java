@@ -19,32 +19,15 @@ public class RelatedInfoList {
 	
 	private ArrayList<Integer> category;
 	private ArrayList<Integer> brand;
-	
-	private HashMap<Integer, OfferInfo> offers;
 
 	
 	public void run()
 	{
 		buildLists();
 		buildCat2DeptMap();
-		buildOfferMap();
 	}
-
-	private class OfferInfo
-	{
-		public int category;
-		public int department;
-		public int brand;
-	}
-
-	
-	
-	private void buildCat2DeptMap() {
-		// TODO Auto-generated method stub
 		
-	}
-
-	private void buildOfferMap() {
+	private void buildCat2DeptMap() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -5,20 +5,26 @@ import java.io.Serializable;
 public class OfferFeatureExtraction{
 	
 	private CustomerTransactions customerTransactions;
-	private OfferCustomerList offerCustomer;
+	private OfferCustomerMap offerCustomer;
 	private RelatedInfoList relatedInfo;
 	
 	public OfferFeatureExtraction(CustomerTransactions customerTransactions, 
-			OfferCustomerList offerCustomer, RelatedInfoList relatedInfo)
+			OfferCustomerMap offerCustomer, RelatedInfoList relatedInfo)
 	{
 		this.customerTransactions = customerTransactions;
 		this.offerCustomer = offerCustomer;
 		this.relatedInfo = relatedInfo;
 	}
 	
-	public void extractOfferFeatures (int offerIndex)
+	public void extractOfferFeatures ()
 	{
 		//TODO get a list of customes for that offer
+		//for each offer
+			extractOfferMatrix();
+			writeFeatureMatrixToFile();
+	}
+
+	private void extractOfferMatrix() {
 		// for each customer
 			extractCustomerFeature();
 	}
@@ -26,14 +32,13 @@ public class OfferFeatureExtraction{
 	private void extractCustomerFeature() {
 		// TODO Auto-generated method stub
 		
-		writeCustomerFeatureToFile();
-	}
-
-	private void writeCustomerFeatureToFile() {
-		// TODO Auto-generated method stub
 		
 	}
 	
-	
+	private void writeFeatureMatrixToFile() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
