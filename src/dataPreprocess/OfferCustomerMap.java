@@ -3,7 +3,7 @@ package dataPreprocess;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class OfferCustomerList {
+public class OfferCustomerMap {
 
 	public class CustomerAcceptence
 	{
@@ -12,7 +12,7 @@ public class OfferCustomerList {
 	}
 	public String transHistoryFile;
 	
-	public OfferCustomerList(String transaHistoryFile)
+	public OfferCustomerMap(String transaHistoryFile)
 	{
 		this.transHistoryFile = transHistoryFile;
 	}

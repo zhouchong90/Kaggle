@@ -12,11 +12,9 @@ public class WorkFlow {
 	public void run() {
 		
 		buildRelatedInfoList();
-		transactionReduction();
-		buildOfferCustomerList();
+		buildOfferCustomerMap();
 		buildCustomerTransactions();
 		offerFeatureExtraction();
-
 	}
 
 	private void offerFeatureExtraction() {
@@ -31,14 +29,8 @@ public class WorkFlow {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-	private void transactionReduction() {
-		// TODO Auto-generated method stub
-		
-	}
 	
-	private void buildOfferCustomerList() {
+	private void buildOfferCustomerMap() {
 		// TODO Auto-generated method stub
 		
 	}
