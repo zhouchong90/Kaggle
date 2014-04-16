@@ -1,5 +1,7 @@
 package dataPreprocess;
 
+import java.util.ArrayList;
+
 public class WorkFlow {
 
 	private String fileFolderPath;
@@ -12,12 +14,10 @@ public class WorkFlow {
 	public void run() {
 		
 		RelatedInfoList infoList = buildRelatedInfoList();
-		System.out.println(infoList.getCat2dept().toString());
         OfferCustomerMap ocMap = buildOfferCustomerMap(infoList);
-        
                 
-		buildCustomerTransactions();
-		offerFeatureExtraction();
+		CustomerTransactions ct = buildCustomerTransactions(infoList);
+		offerFeatureExtraction(infoList, ocMap, ct);
 	}
         
 	private RelatedInfoList buildRelatedInfoList() {
@@ -36,16 +36,16 @@ public class WorkFlow {
 		
 	}
         
-    private void buildCustomerTransactions() {
-		// TODO Auto-generated method stub
-		
+    private CustomerTransactions buildCustomerTransactions(RelatedInfoList relatedInfo) {
+		CustomerTransactions ct = new CustomerTransactions(fileFolderPath+"transactions.csv", relatedInfo);
+		ct.run();
+		return ct;
 	}
         
-	private void offerFeatureExtraction() {
-		// TODO Auto-generated method stub
-		//read the offer listfile
-		//for each offer
-		//extract offer features.
+	private void offerFeatureExtraction(RelatedInfoList infoList, OfferCustomerMap ocMap, CustomerTransactions ct) {
+		
+		OfferFeatureExtraction featureExtraction = new OfferFeatureExtraction(infoList,ocMap,ct);	
+		featureExtraction.run();
 		
 	}
 

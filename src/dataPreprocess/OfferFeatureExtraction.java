@@ -1,6 +1,7 @@
 package dataPreprocess;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class OfferFeatureExtraction{
 	
@@ -8,28 +9,33 @@ public class OfferFeatureExtraction{
 	private OfferCustomerMap offerCustomer;
 	private RelatedInfoList relatedInfo;
 	
-	public OfferFeatureExtraction(CustomerTransactions customerTransactions, 
-			OfferCustomerMap offerCustomer, RelatedInfoList relatedInfo)
+	public OfferFeatureExtraction(RelatedInfoList relatedInfo, OfferCustomerMap offerCustomer,
+			CustomerTransactions customerTransactions)
 	{
 		this.customerTransactions = customerTransactions;
 		this.offerCustomer = offerCustomer;
 		this.relatedInfo = relatedInfo;
 	}
 	
-	public void extractOfferFeatures ()
+	public void run()
 	{
-		//TODO get a list of customes for that offer
-		//for each offer
-			extractOfferMatrix();
+		//for each offer, extract the feature matrix separately and write to file
+		ArrayList<String> offerList = relatedInfo.getOfferList();
+		for (String offer:offerList)
+		{
+			extractOfferMatrix(offer);
 			writeFeatureMatrixToFile();
+		}
 	}
 
-	private void extractOfferMatrix() {
-		// for each customer
-			extractCustomerFeature();
+	private void extractOfferMatrix(String offerNumber) {
+		String customerID = null;
+			// for each customer
+		
+			extractCustomerFeature(customerID);
 	}
 
-	private void extractCustomerFeature() {
+	private void extractCustomerFeature(String customerID) {
 		// TODO Auto-generated method stub
 		
 		
