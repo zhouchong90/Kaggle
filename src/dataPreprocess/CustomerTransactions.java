@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +16,7 @@ import au.com.bytecode.opencsv.CSVReader;
 
 public class CustomerTransactions {
 
-	private class CustomerProfile
+	public class CustomerProfile
 	{
 		private int transactionCount;
 		private float totalExpenseCount;
@@ -25,6 +24,7 @@ public class CustomerTransactions {
 		private Date maxTime;
 		private int[] categoryCount;
 		private int[] brandCount;
+		private boolean acceptOffer;
 		
 		public CustomerProfile(int transactionCount, float totalExpense, Date minTime, Date maxTime, int[] categoryCount, int[] brandCount)
 		{
@@ -36,6 +36,22 @@ public class CustomerTransactions {
 			this.brandCount = brandCount;
 		}
 		
+		public int getTransactionCount() {
+			return transactionCount;
+		}
+
+		public float getTotalExpenseCount() {
+			return totalExpenseCount;
+		}
+
+		public Date getMinTime() {
+			return minTime;
+		}
+
+		public Date getMaxTime() {
+			return maxTime;
+		}
+		
 		public int[] getCategoryCount() {
 			return categoryCount;
 		}
@@ -44,6 +60,14 @@ public class CustomerTransactions {
 			return brandCount;
 		}
 		
+		public boolean isAcceptOffer() {
+			return acceptOffer;
+		}
+
+		public void setAcceptOffer(boolean acceptOffer) {
+			this.acceptOffer = acceptOffer;
+		}
+
 		public void addTransaction()
 		{
 			transactionCount++;
@@ -63,12 +87,11 @@ public class CustomerTransactions {
 		}		
 	}
 	
-	
 	private String transactionFile;
 	private RelatedInfoList relatedInfo;
 	
 	private HashMap<String, CustomerProfile> customerProfiles;
-	
+
 	public CustomerTransactions(String transactionFile, RelatedInfoList relatedInfo)
 	{
 		this.transactionFile = transactionFile;
@@ -78,6 +101,10 @@ public class CustomerTransactions {
 	public void run()
 	{
 		buildCustomerProfiles();
+	}
+	
+	public HashMap<String, CustomerProfile> getCustomerProfiles() {
+		return customerProfiles;
 	}
 
 	private void buildCustomerProfiles() {

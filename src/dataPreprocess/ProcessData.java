@@ -7,7 +7,5 @@ public class ProcessData {
 		String fileFolderPath = "C:/Users/Chong Zhou/Desktop/Kaggle/";
 		WorkFlow w= new WorkFlow(fileFolderPath);
 		w.run();
-
 	}
-
 }
