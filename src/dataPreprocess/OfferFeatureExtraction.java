@@ -1,11 +1,13 @@
 package dataPreprocess;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
 
 
 import dataPreprocess.CustomerTransactions.CustomerProfile;
@@ -60,7 +62,13 @@ public class OfferFeatureExtraction{
 	
 	private void writeFeatureMatrixToFile(String offer, ArrayList<CustomerProfile> customerProfiles) {
 		try {
-			FileWriter fw = new FileWriter(fileFolderPath+"offerFeatures/"+offer);
+			//create necessary file folders
+			String fileName = fileFolderPath+"offerFeatures/"+offer+".arff";
+			File f = new File(fileName);
+			if(!f.getParentFile().exists())
+				f.getParentFile().mkdirs();
+			
+			FileWriter fw = new FileWriter(f);
 			PrintWriter printer = new PrintWriter(fw,true);
 			//write header of the file
 			writeHeader(printer);
